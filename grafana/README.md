@@ -332,7 +332,7 @@ systemctl status vmagent
 
 Мы подключили Victoria Metrics к Grafana.
 
-Дашборды подключаются через Dashboards - New - Import. Копируем JSON дашборда ниже, и вставляем в импорт, и выбираем источник - prometeus.
+Дашборды подключаются через Dashboards - New - Import. Копируем JSON дашборда ниже, и вставляем в импорт.
 
 Пак дашбордов от комьюнити:
 
