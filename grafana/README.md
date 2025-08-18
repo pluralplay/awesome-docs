@@ -329,3 +329,4 @@ systemctl status vmagent
 - [Filesystem Disks](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/filesystem-disks.json) by [Kutovoys](https://github.com/kutovoys)
 - [CPU System](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/cpu-system.json) by [Kutovoys](https://github.com/kutovoys)
 
+В Extended-версии документации мы обойдемся без netbird, и научим Victoria Metrics собирать метрики через внешку с дополнительной авторизацией.
