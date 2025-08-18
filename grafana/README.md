@@ -336,9 +336,16 @@ systemctl status vmagent
 
 Пак дашбордов от комьюнити:
 [Remnawave Dashboard](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/remnawave-dashboard.json) by [kastov](https://github.com/kastov)
+
 [cAdvisor Dashboard](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/cadvisor.json) by [grafana official](https://github.com/grafana)
+
 [Node Overview](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/node-overview.json) by [Kutovoys](https://github.com/kutovoys)
+
 [Network System](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/network.json) by [Kutovoys](https://github.com/kutovoys)
+
 [Memory System](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/memory.json) by [Kutovoys](https://github.com/kutovoys)
+
 [Filesystem Disks](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/filesystem-disks.json) by [Kutovoys](https://github.com/kutovoys)
+
 [CPU System](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/cpu-system.json) by [Kutovoys](https://github.com/kutovoys)
+
