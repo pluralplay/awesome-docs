@@ -135,24 +135,9 @@ mkdir -p /opt/monitoring/{cadvisor,nodeexporter,vmagent/conf.d}
 ```
 Качаем и распаковываем/переименовываем бинарники и делаем их исполняемыми:
 
-#### cadvisor:
-
 ```bash
-cd /opt/monitoring/cadvisor && wget https://github.com/google/cadvisor/releases/download/v0.53.0/cadvisor-v0.53.0-linux-amd64 && mv cadvisor-v0.53.0-linux-amd64 cadvisor && chmod +x cadvisor && cd
+cd /opt/monitoring/cadvisor && wget https://github.com/google/cadvisor/releases/download/v0.53.0/cadvisor-v0.53.0-linux-amd64 && mv cadvisor-v0.53.0-linux-amd64 cadvisor && chmod +x cadvisor && cd /opt/monitoring/nodeexporter && wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz && tar -xvf node_exporter-1.9.1.linux-amd64.tar.gz && cd node_exporter-1.9.1.linux-amd64 && mv node_exporter /opt/monitoring/nodeexporter && cd .. && chmod +x node_exporter && rm -f node_exporter-1.9.1.linux-amd64.tar.gz && rm -r node_exporter-1.9.1.linux-amd64 && cd /opt/monitoring/vmagent && wget https://github.com/VictoriaMetrics/VictoriaMetrics/releases/download/v1.123.0/vmutils-linux-amd64-v1.123.0.tar.gz && tar -xvf vmutils-linux-amd64-v1.123.0.tar.gz && mv vmagent-prod vmagent && find . ! -name 'vmagent' -type f -delete && chmod +x vmagent && cd
 ```
-
-#### node exporter:
-
-```bash
-cd /opt/monitoring/nodeexporter && wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz && tar -xvf node_exporter-1.9.1.linux-amd64.tar.gz && cd node_exporter-1.9.1.linux-amd64 && mv node_exporter /opt/monitoring/nodeexporter && cd .. && chmod +x node_exporter && rm -f node_exporter-1.9.1.linux-amd64.tar.gz && rm -r node_exporter-1.9.1.linux-amd64 && cd
-```
-
-#### vmagent:
-
-```bash
-cd /opt/monitoring/vmagent && wget https://github.com/VictoriaMetrics/VictoriaMetrics/releases/download/v1.123.0/vmutils-linux-amd64-v1.123.0.tar.gz && tar -xvf vmutils-linux-amd64-v1.123.0.tar.gz && mv vmagent-prod vmagent && find . ! -name 'vmagent' -type f -delete && chmod +x vmagent && cd
-```
-
 Создаём файл конфигурации для vmagent:
 
 ```bash
