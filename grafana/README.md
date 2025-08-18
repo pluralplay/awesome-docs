@@ -335,6 +335,7 @@ systemctl status vmagent
 Дашборды подключаются через Dashboards - New - Import. И указываем линки на дашборды, и выбираем источник - prometeus.
 
 Пак дашбордов от комьюнити:
+
 [Remnawave Dashboard](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/remnawave-dashboard.json) by [kastov](https://github.com/kastov)
 
 [cAdvisor Dashboard](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/cadvisor.json) by [grafana official](https://github.com/grafana)
