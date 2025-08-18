@@ -4,7 +4,7 @@
 
 Сегодня мы с вами познакомимся с полной установкой системы мониторинга и его работу через NetBird, но прежде чем мы начнем, нужно изучить [инструкцию по установке и настройке NetBird](https://wiki.egam.es/ru/configuration/netbird).
 > [!IMPORTANT]
-> **Выпуск сертификатов для вашего домена в этой статье не рассматривается. Сертификаты перед запуском docker-compose надо положить в /opt/monitoring/nginx, или прокинуть нужный volume где лежат сетификаты у вас**
+> **Выпуск сертификатов для вашего домена в этой статье не рассматривается. Сертификаты перед запуском docker-compose надо положить в /opt/monitoring/nginx, или прокинуть нужный volume где лежат сетификаты.**
 
 > [!TIP]
 > **Инструкция описывает установку сервиса на отдельный VPS сервер, если вы из РФ - желательно на сервер РФ, чтобы мониторить доступность соединения через Xray Checker.**
@@ -46,8 +46,8 @@ services:
       - grafana-data:/var/lib/grafana
       - ./grafana/provisioning:/etc/grafana/provisioning
     environment:
-      - GF_SERVER_DOMAIN=example.com
-      - GF_SERVER_ROOT_URL=https://example.com/grafana
+      - GF_SERVER_DOMAIN=example.com # основной домен до графаны
+      - GF_SERVER_ROOT_URL=https://example.com/grafana # полный путь до графаны (впишем в nginx.conf потом)
       - GF_SERVER_SERVE_FROM_SUB_PATH=true
       - GF_SERVER_HTTP_PORT=3000
       - GF_SERVER_PROTOCOL=http
@@ -129,7 +129,7 @@ docker compose up -d && docker compose logs -f -t
 ```
 ## Установка скрапперов и vmagent на сервер мониторинга и ноды
 > [!TIP]
-> **Создаём папки только на нодах**
+> **Создаём папки только на нодах, на мейн сервере уже созданы**
 ```bash
 mkdir -p /opt/monitoring/{cadvisor,nodeexporter,vmagent/conf.d}
 ```
@@ -329,4 +329,4 @@ systemctl status vmagent
 - [Filesystem Disks](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/filesystem-disks.json) by [Kutovoys](https://github.com/kutovoys)
 - [CPU System](https://raw.githubusercontent.com/pluralplay/awesome-docs/main/grafana/dashboards/cpu-system.json) by [Kutovoys](https://github.com/kutovoys)
 
-В Extended-версии документации мы обойдемся без netbird, и научим Victoria Metrics собирать метрики через внешку с дополнительной авторизацией.
+В следующей Extended-версии документации мы обойдемся без netbird, и научим Victoria Metrics собирать метрики через внешку с дополнительной авторизацией.
