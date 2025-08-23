@@ -226,7 +226,7 @@ nano /opt/monitoring/vmagent/conf.d/nodeexporter.yml
 ```
 
 > [!TIP]
-> **На машине, где стоит xray-checker надо так-же создать файл конфигурации.**
+> **На машине, где стоит xray-checker (в нашем случае сервер мониторинга) надо так-же создать файл конфигурации.**
 
 ```
 nano /opt/monitoring/vmagent/conf.d/xraychecker.yml
