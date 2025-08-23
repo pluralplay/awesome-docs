@@ -28,9 +28,6 @@ Xray-Checker - проверка состояния ваших прокси-хо�
 Вся наша схема будет работать через Netbird, открывать порты наружу нет необходимости. Необходимо будет открыть только 443 для Grafana.
 
 
-> [!TIP]
-> **Если вы хотите в Grafana видеть метрики самого сервера мониторинга - ставьте node exporter, cadvisor и vmagent так-же на сервер мониторинга. (описано на схеме выше)**
-
 > [!IMPORTANT]
 > **Выпуск сертификатов для вашего домена в этой статье не рассматривается. Сертификаты домена перед запуском docker-compose надо положить в /opt/monitoring/nginx, или прокинуть нужный volume где лежат сетификаты.**
 
@@ -135,11 +132,19 @@ nano /opt/monitoring/nginx/nginx.conf
 
 server {
     listen 443 ssl;
+	http2 on;
     server_name example.com; #Вписываем домен, или саб-домен для доступа к grafana извне (нужна соотвествующая DNS-запись)
 
     ssl_certificate "/etc/nginx/ssl/fullchain.pem";
     ssl_certificate_key "/etc/nginx/ssl/privkey.key";
     ssl_trusted_certificate "/etc/nginx/ssl/fullchain.pem";
+	ssl_protocols TLSv1.2 TLSv1.3;
+	ssl_ecdh_curve X25519:prime256v1:secp384r1;
+	ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305;
+	ssl_prefer_server_ciphers on;
+	ssl_session_timeout 1d;
+	ssl_session_cache shared:MozSSL:10m;
+	ssl_session_tickets off;
 
     location /grafana {
         proxy_pass http://grafana:3000;
@@ -156,6 +161,9 @@ server {
 docker compose up -d && docker compose logs -f -t
 ```
 ## Установка и настройка компонентов на серверах, где нужен сбор метрик.
+
+> [!TIP]
+> **Если вы хотите в Grafana видеть метрики самого сервера мониторинга - ставьте node exporter, cadvisor и vmagent так-же на сервер мониторинга. (описано на схеме выше)**
 
 > [!IMPORTANT]
 > **Для сервера с Remnawave-панелью и сервера, где установлен xray-checker нужны отдельные scrape-файлы, аннотациями помечено ниже.**
