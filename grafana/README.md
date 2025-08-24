@@ -226,7 +226,7 @@ nano /opt/monitoring/vmagent/conf.d/nodeexporter.yml
 ```
 
 > [!TIP]
-> **На машине, где стоит xray-checker (в нашем случае сервер мониторинга) надо так-же создать файл конфигурации.**
+> **На машине, где стоит xray-checker (в нашем случае сервер мониторинга) надо создать файл конфигурации.**
 
 ```
 nano /opt/monitoring/vmagent/conf.d/xraychecker.yml
@@ -241,7 +241,7 @@ nano /opt/monitoring/vmagent/conf.d/xraychecker.yml
           instance: "ваше_название_инстанса(ноды)"
 ```
 > [!TIP]
-> **На машине, где стоит remnawave-panel надо так-же создать файл конфигурации.**
+> **На машине, где стоит remnawave-panel надо создать файл конфигурации.**
 > Не забудьте прокинуть порт 3001 (- 127.0.0.1:3001:3001) в docker-compose remnawave, и вписать логин/пароль от метрик (находится в основном .env-файле remnawave, категория Prometheus)
 ```
 nano /opt/monitoring/vmagent/conf.d/remnawave.yml
