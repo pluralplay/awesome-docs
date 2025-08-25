@@ -1,11 +1,66 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_VICTORIAMETRICS",
+      "label": "victoriametrics",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bargauge",
+      "name": "Bar gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "12.2.0-17027759091"
+    },
+    {
+      "type": "panel",
+      "id": "piechart",
+      "name": "Pie chart",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
         "builtIn": 1,
         "datasource": {
           "type": "prometheus",
-          "uid": "${datasource}"
+          "uid": "${DS_VICTORIAMETRICS}"
         },
         "enable": true,
         "hide": true,
@@ -15,10 +70,10 @@
       }
     ]
   },
-  "editable": false,
+  "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 43,
+  "id": null,
   "links": [],
   "panels": [
     {
@@ -49,7 +104,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               }
             ]
           },
@@ -82,12 +138,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "sum(remnawave_users_total)",
           "refId": "A"
@@ -111,7 +167,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "#EAB839",
@@ -152,12 +209,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "sum(remnawave_users_online_stats{metricType=\"onlineNow\"})",
           "refId": "A"
@@ -197,7 +254,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red"
+                "color": "red",
+                "value": 0
               },
               {
                 "color": "green",
@@ -234,12 +292,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "count(remnawave_node_status == 1)",
           "refId": "A"
@@ -263,7 +321,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "#EAB839",
@@ -304,12 +363,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "avg(remnawave_nodejs_cpu_usage_percent)",
           "refId": "A"
@@ -333,7 +392,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "#EAB839",
@@ -374,12 +434,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "avg(remnawave_nodejs_heap_usage_percent)",
           "refId": "A"
@@ -403,7 +463,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "#EAB839",
@@ -444,12 +505,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "avg(remnawave_nodejs_http_req_rate)",
           "refId": "A"
@@ -578,18 +639,19 @@
           "fields": "",
           "values": false
         },
+        "sort": "desc",
         "tooltip": {
           "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "remnawave_users_status",
           "legendFormat": "{{status}}",
@@ -640,7 +702,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -682,12 +745,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "remnawave_users_online_stats",
           "legendFormat": "{{metricType}}",
@@ -756,7 +819,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               }
             ]
           },
@@ -787,12 +851,12 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "remnawave_users_online_stats{metricType=\"onlineNow\"}",
           "legendFormat": "Онлайн сейчас",
@@ -827,7 +891,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_VICTORIAMETRICS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -846,7 +910,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -948,11 +1013,11 @@
         "sortBy": [
           {
             "desc": true,
-            "displayName": "Пользователей"
+            "displayName": "Статус"
           }
         ]
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
@@ -967,8 +1032,9 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
+          "editorMode": "code",
           "expr": "max by (node_uuid, node_name, node_country_emoji) (remnawave_node_status)",
           "format": "table",
           "instant": true,
@@ -1024,6 +1090,203 @@
     {
       "datasource": {
         "type": "prometheus",
+        "uid": "${DS_VICTORIAMETRICS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "right",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 10,
+        "y": 15
+      },
+      "id": 25,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.2.0-17027759091",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_VICTORIAMETRICS}"
+          },
+          "editorMode": "builder",
+          "expr": "xray_proxy_latency_ms",
+          "legendFormat": "{{name}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "XRAY LATENCY",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_VICTORIAMETRICS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "dark-red",
+                  "index": 0,
+                  "text": "❌ Offline"
+                },
+                "1": {
+                  "color": "dark-green",
+                  "index": 1,
+                  "text": "✅ Online"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 6,
+        "x": 18,
+        "y": 15
+      },
+      "id": 26,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "percentSize": 1
+        },
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.2.0-17027759091",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_VICTORIAMETRICS}"
+          },
+          "editorMode": "builder",
+          "exemplar": false,
+          "expr": "xray_proxy_status",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{name}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "XRAY STATUS",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
         "uid": "${datasource}"
       },
       "fieldConfig": {
@@ -1069,7 +1332,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               }
             ]
           },
@@ -1092,9 +1356,7 @@
           ],
           "displayMode": "table",
           "placement": "right",
-          "showLegend": true,
-          "sortBy": "Mean",
-          "sortDesc": true
+          "showLegend": true
         },
         "tooltip": {
           "hideZeros": false,
@@ -1102,12 +1364,12 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "remnawave_node_online_users",
           "legendFormat": "{{node_country_emoji}} {{node_name}}",
@@ -1178,7 +1440,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               }
             ]
           },
@@ -1209,12 +1472,12 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "sum(rate(remnawave_node_inbound_upload_bytes[5m])) by (node_name, node_country_emoji)",
           "legendFormat": "{{node_country_emoji}} {{node_name}} Upload",
@@ -1272,7 +1535,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               }
             ]
           },
@@ -1303,12 +1567,12 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "sum(rate(remnawave_node_inbound_download_bytes[5m])) by (node_name, node_country_emoji)",
           "legendFormat": "{{node_country_emoji}} {{node_name}} Download",
@@ -1333,7 +1597,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               }
             ]
           },
@@ -1373,12 +1638,12 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "editorMode": "code",
           "expr": "sum by (tag) (\n  increase(remnawave_node_inbound_upload_bytes[$__range])\n  +\n  increase(remnawave_node_inbound_download_bytes[$__range])\n)",
@@ -1429,7 +1694,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               }
             ]
           },
@@ -1469,12 +1735,12 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "editorMode": "code",
           "expr": "topk(100,\n  sum by (node_name, node_country_emoji) (\n    increase(remnawave_node_inbound_upload_bytes[$__range])\n  )\n  +\n  sum by (node_name, node_country_emoji) (\n    increase(remnawave_node_inbound_download_bytes[$__range])\n  )\n  +\n  sum by (node_name, node_country_emoji) (\n    increase(remnawave_node_outbound_upload_bytes[$__range])\n  )\n  +\n  sum by (node_name, node_country_emoji) (\n    increase(remnawave_node_outbound_download_bytes[$__range])\n  )\n)",
@@ -1570,7 +1836,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -1605,12 +1872,12 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "remnawave_nodejs_cpu_usage_percent{instance_name=~\"$instance\"}",
           "legendFormat": "{{instance_name}} - CPU",
@@ -1632,7 +1899,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_VICTORIAMETRICS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1677,7 +1944,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -1773,7 +2041,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
@@ -1787,7 +2055,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "remnawave_nodejs_http_req_latency_p50{instance_name=~\"$instance\"}",
           "legendFormat": "{{instance_name}} - HTTP p50",
@@ -1805,7 +2073,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "remnawave_nodejs_event_loop_latency_p50{instance_name=~\"$instance\"}",
           "legendFormat": "{{instance_name}} - Event Loop p50",
@@ -1863,7 +2131,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               }
             ]
           },
@@ -1940,12 +2209,12 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "remnawave_nodejs_heap_used_bytes{instance_name=~\"$instance\"}",
           "legendFormat": "{{instance_name}} - Used Heap",
@@ -1963,7 +2232,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "remnawave_nodejs_memory_usage_bytes{instance_name=~\"$instance\"}",
           "legendFormat": "{{instance_name}} - Memory",
@@ -2021,7 +2290,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               }
             ]
           },
@@ -2114,12 +2384,12 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0-17027759091",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "remnawave_nodejs_http_req_rate{instance_name=~\"$instance\"}",
           "legendFormat": "{{instance_name}} - Requests/min",
@@ -2137,7 +2407,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_VICTORIAMETRICS}"
           },
           "expr": "remnawave_nodejs_active_requests{instance_name=~\"$instance\"}",
           "legendFormat": "{{instance_name}} - Requests",
@@ -2148,7 +2418,6 @@
       "type": "timeseries"
     }
   ],
-  "preload": false,
   "refresh": "30s",
   "schemaVersion": 41,
   "tags": [
@@ -2159,40 +2428,23 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": false,
-          "text": "Prometheus",
-          "value": "prometheus"
-        },
-        "hide": 0,
+        "current": {},
         "includeAll": false,
         "label": "Data Source",
-        "multi": false,
         "name": "datasource",
         "options": [],
         "query": "prometheus",
-        "queryValue": "",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "type": "datasource"
       },
       {
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
           "uid": "${datasource}"
         },
         "definition": "label_values(remnawave_nodejs_cpu_usage_percent, instance_name)",
-        "hide": 0,
         "includeAll": true,
         "label": "Node.js Instance",
         "multi": true,
@@ -2205,7 +2457,6 @@
         },
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
         "type": "query"
       }
@@ -2219,5 +2470,6 @@
   "timezone": "browser",
   "title": "Remnawave Monitoring Dashboard",
   "uid": "remnawave-monitoring",
-  "version": 8
+  "version": 1,
+  "weekStart": ""
 }
