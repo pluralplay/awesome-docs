@@ -37,7 +37,7 @@ Xray-Checker - проверка состояния ваших прокси-хо�
 ## Конфигурация сервера с Grafana/VMetrics.
 Устанавливаем Docker.
 ```bash
-sudo curl -fsSL https://get.docker.com | sh
+curl -fsSL https://get.docker.com | sh
 ```
 Создаём директории и создаём docker-compose.yml.
 
